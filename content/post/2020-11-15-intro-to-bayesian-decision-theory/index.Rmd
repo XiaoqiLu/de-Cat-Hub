@@ -1,0 +1,11 @@
+---
+title: Intro to Bayesian Decision Theory
+author: de Cat
+date: '2020-11-15'
+slug: intro-to-bayesian-decision-theory
+categories:
+  - statistics
+tags:
+  - Bayesian
+---
+

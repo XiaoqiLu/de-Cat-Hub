@@ -7,5 +7,14 @@ categories:
   - statistics
 tags:
   - Bayesian
+bibliography: refs.bib
 ---
 
+As the pilot of my new blog site, I would like to touch on Bayesian decision theory, which can be found in many statistical inference textbooks, such as @shaojun-textbook.
+
+# Decision Theory
+
+Under the framework of decision theory, we define $X \in \mathcal{X}$ as observed random variables (or data), $\theta \in \Theta$ as state of nature (or parameter of the data generator), and $a \in \mathcal{A}$ as action to be taken.
+
+A decision rule $T: \mathcal{X} \mapsto \mathcal{A}$ is a function that takes action $a = T(X)$ upon observing $X$. To evaluate an action, we define loss function $L: (\Theta \times \mathcal{A}) \mapsto \mathbb{R}$. Naturally, a risk function is used to evaluate decision rules:
+$$R(\theta, T) = \operatorname{E}\left[L\left(\theta, T(X)\right)\, \Big\vert\, \theta\right]$$

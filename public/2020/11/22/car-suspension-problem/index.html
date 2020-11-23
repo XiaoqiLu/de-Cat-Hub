@@ -33,7 +33,7 @@
       <header class="header">
         <nav class="nav">
   <a href="/" class="nav-logo">
-    <img src="/images/images/molly2.jpg"
+    <img src="/images/molly1.jpg"
          width="50"
          height="50"
          alt="Logo">
@@ -57,7 +57,7 @@
 
   <article class="article">
     
-    <span class="article-duration">1 min read</span>
+    <span class="article-duration">3 min read</span>
     
 
     <h1 class="article-title">Car Suspension Problem</h1>
@@ -81,13 +81,45 @@
 <li>A generalized version of the original problem was studied.</li>
 <li>The result is too elegant to not writing it down.</li>
 </ol>
-<div id="breakdown-the-original-problem" class="section level1 unnumbered">
-<h1>Breakdown the Original Problem</h1>
+<div id="break-down-the-original-problem" class="section level1">
+<h1>Break Down the Original Problem</h1>
+<p>As a high-school physics puzzle, the problem itself is not very rigorously stated. However, we can still interpret its intention and set up an idealized model for the physical process:</p>
+<ul>
+<li>The body of the car is modeled by a thin rectangular plate (center of mass not necessarily at geometry center).</li>
+<li>The body of the car is level before perturbation.</li>
+<li>Each wheel + suspension is modeled by a linear spring (with zero mass and following Hooke’s law), supporting one corner of the car.<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a></li>
+<li>All springs are identical, sharing same stiffness <span class="math inline">\(k\)</span>.<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a></li>
+<li>The 8-cm-high perturbation is small compared to the compressions of the springs (<span class="math inline">\(h \ll Mg / k\)</span>, or, the springs are flexible enough), such that the wheels always stay in contact with the ground.</li>
+<li>The 8-cm-high perturbation is small compared to the scale of the car (<span class="math inline">\(h \ll D\)</span>), such that the body of the car remains approximately level after perturbation.<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a></li>
+</ul>
+<p>This setting is equivalent to a rectangle table with springs as legs. The hint and solution in the book is based on the “zero net torque” condition, giving the following answers:</p>
+<ul>
+<li>For the right-front perturbation case, the right front and left back springs are each further compressed by 2cm, while the other two springs are relatively stretched by 2cm. This makes the four corners of the body raised by 6cm (right front), -2cm (left back), and 2cm (left front and right back).</li>
+<li>For the both-right perturbation case, the compressions of four springs do not change.</li>
+<li>The result does not depend on the mass distribution.</li>
+</ul>
+</div>
+<div id="generalized-version" class="section level1">
+<h1>Generalized Version</h1>
+</div>
+<div id="derivation-and-solution" class="section level1">
+<h1>Derivation and Solution</h1>
+</div>
+<div id="conclusion" class="section level1 unnumbered">
+<h1>Conclusion</h1>
 <div id="refs" class="references">
 <div id="ref-physics-puzzle-200">
 <p>Gnädig, P., G. Honyek, and K. F. Riley. 2001. <em>200 Puzzling Physics Problems: With Hints and Solutions</em>. Cambridge University Press. <a href="https://doi.org/10.1017/CBO9780511809804">https://doi.org/10.1017/CBO9780511809804</a>.</p>
 </div>
 </div>
+</div>
+<div class="footnotes">
+<hr />
+<ol>
+<li id="fn1"><p>This is an idealization of fully independent suspension.<a href="#fnref1" class="footnote-back">↩︎</a></p></li>
+<li id="fn2"><p>However, their compressions are not identical when center of mass is not at geometry center. When this happens, calibration is needed to level the body of the car in the first place.<a href="#fnref2" class="footnote-back">↩︎</a></p></li>
+<li id="fn3"><p>This, together with the thin plate idealization, is to ensure that the effect from rotation of the car can be ignored.<a href="#fnref3" class="footnote-back">↩︎</a></p></li>
+</ol>
 </div>
 
     </div>
@@ -113,6 +145,9 @@
     
 
     
+<script src="/js/math-code.js"></script>
+<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
 
     
   </body>

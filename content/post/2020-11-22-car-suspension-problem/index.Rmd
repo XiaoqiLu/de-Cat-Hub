@@ -18,4 +18,31 @@ I decide to post my solution here for two reasons:
 1. A generalized version of the original problem was studied.
 2. The result is too elegant to not writing it down.
 
-# Breakdown the Original Problem
+# Break Down the Original Problem
+
+As a high-school physics puzzle, the problem itself is not very rigorously stated. However, we can still interpret its intention and set up an idealized model for the physical process:
+
+* The body of the car is modeled by a thin rectangular plate (center of mass not necessarily at geometry center).
+* The body of the car is level before perturbation.
+* Each wheel + suspension is modeled by a linear spring (with zero mass and following Hooke's law), supporting one corner of the car.[^1]
+* All springs are identical, sharing same stiffness $k$.[^2]
+* The 8-cm-high perturbation is small compared to the compressions of the springs ($h \ll Mg / k$, or, the springs are flexible enough), such that the wheels always stay in contact with the ground.
+* The 8-cm-high perturbation is small compared to the scale of the car ($h \ll D$), such that the body of the car remains approximately level after perturbation.[^3]
+
+This setting is equivalent to a rectangle table with springs as legs. The hint and solution in the book is based on the "zero net torque" condition, giving the following answers:
+
+* For the right-front perturbation case, the right front and left back springs are each further compressed by 2cm, while the other two springs are relatively stretched by 2cm. This makes the four corners of the body raised by 6cm (right front), -2cm (left back), and 2cm (left front and right back).
+* For the both-right perturbation case, the compressions of four springs do not change.
+* The result does not depend on the mass distribution.
+
+# Generalized Version
+
+
+
+# Derivation and Solution
+
+# Conclusion
+
+[^1]: This is an idealization of fully independent suspension.
+[^2]: However, their compressions may not be identical when center of mass is not at geometry center. When this happens, calibration is needed to level the body of the car in the first place.
+[^3]: This, together with the thin plate idealization, is to ensure that the effect from rotation of the car can be ignored.

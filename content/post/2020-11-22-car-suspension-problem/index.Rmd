@@ -1,0 +1,14 @@
+---
+title: Car Suspension Problem
+author: de Cat
+date: '2020-11-22'
+slug: car-suspension-problem
+categories:
+  - physics
+tags: []
+bibliography: refs.bib
+---
+
+The following problem is from a high-school-level physics puzzle book @physics-puzzle-200 (P9):
+
+> The suspension springs of all four wheels of a car are identical. By how much does the body of the car (considered rigid) rise above each of the wheels when its right front wheel is parked on an 8-cm-high pavement? Does the result change when the car is parked with both right wheels on the pavement? Does the result depend on the number and positions of the people sitting in the car?

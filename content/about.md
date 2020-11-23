@@ -5,4 +5,4 @@ title: About
 
 Physics, statistics, and others.
 
-I am trying out this new blog site with the fantastic tool [blogdown](https://bookdown.org/yihui/blogdown/), for its LaTex support and R-friendly -- it is built on R Markdown. Contents from my [old blog](https://xiaoqilu.wordpress.com/) will be remastered (someday).
+I am trying out this new blog site with the fantastic tool [blogdown](https://bookdown.org/yihui/blogdown/), for its LaTex support and R-friendliness -- it is built on R Markdown. Contents from my [old blog](https://xiaoqilu.wordpress.com/) will be remastered (someday).

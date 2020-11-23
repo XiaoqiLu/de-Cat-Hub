@@ -17,15 +17,5 @@
 The suspension springs of all four wheels of a car are identical. By how much does the body of the car (considered rigid) rise above each of the wheels when its right front wheel is parked on an 8-cm-high pavement? Does the result change when the car is parked with both right wheels on the pavement?</description>
     </item>
     
-    <item>
-      <title>Intro to Bayesian Decision Theory</title>
-      <link>/2020/11/15/intro-to-bayesian-decision-theory/</link>
-      <pubDate>Sun, 15 Nov 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/2020/11/15/intro-to-bayesian-decision-theory/</guid>
-      <description>As the pilot of my new blog site, I would like to touch on Bayesian decision theory, which can be found in many statistical inference textbooks, such as Shao (2003).
-Decision TheoryUnder the framework of decision theory, we define \(X \in \mathcal{X}\) as observed random variables (or data), \(\theta \in \Theta\) as state of nature (or parameter of the data generator), and \(a \in \mathcal{A}\) as action to be taken.</description>
-    </item>
-    
   </channel>
 </rss>

@@ -8,6 +8,8 @@ categories:
 tags:
   - Bayesian
 bibliography: refs.bib
+
+draft: true
 ---
 
 As the pilot of my new blog site, I would like to touch on Bayesian decision theory, which can be found in many statistical inference textbooks, such as @shaojun-textbook.

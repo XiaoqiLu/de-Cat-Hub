@@ -6,7 +6,17 @@
     <description>Recent content in Posts on A Hugo website</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 15 Nov 2020 00:00:00 +0000</lastBuildDate><atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 22 Nov 2020 00:00:00 +0000</lastBuildDate><atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Car Suspension Problem</title>
+      <link>/2020/11/22/car-suspension-problem/</link>
+      <pubDate>Sun, 22 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/2020/11/22/car-suspension-problem/</guid>
+      <description>The following problem is from a high-school-level physics puzzle book Gnädig, Honyek, and Riley (2001) (P9):
+The suspension springs of all four wheels of a car are identical. By how much does the body of the car (considered rigid) rise above each of the wheels when its right front wheel is parked on an 8-cm-high pavement? Does the result change when the car is parked with both right wheels on the pavement?</description>
+    </item>
+    
     <item>
       <title>Intro to Bayesian Decision Theory</title>
       <link>/2020/11/15/intro-to-bayesian-decision-theory/</link>

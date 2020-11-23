@@ -9,6 +9,8 @@ tags: []
 bibliography: refs.bib
 ---
 
+<p style="color:red;">prematurely published draft</p>
+
 The following problem is from a high-school-level physics puzzle book @physics-puzzle-200 (Problem \#9):
 
 > The suspension springs of all four wheels of a car are identical. By how much does the body of the car (considered rigid) rise above each of the wheels when its right front wheel is parked on an 8-cm-high pavement? Does the result change when the car is parked with both right wheels on the pavement? Does the result depend on the number and positions of the people sitting in the car?
@@ -29,7 +31,7 @@ As a high-school physics puzzle, the problem itself is not very rigorously state
 * The 8-cm-high perturbation is small compared to the compressions of the springs ($h \ll Mg / k$, or, the springs are flexible enough), such that the wheels always stay in contact with the ground.
 * The 8-cm-high perturbation is small compared to the scale of the car ($h \ll D$), such that the body of the car remains approximately level after perturbation.[^3]
 
-This setting is equivalent to a rectangle table with springs as legs. The hint and solution in the book is based on the "zero net torque" condition, giving the following answers:
+This setting is equivalent to a rectangle table with springs as legs. The solution from the book is based on the "zero net torque" condition, giving the following answers:
 
 * For the right-front perturbation case, the right front and left back springs are each further compressed by 2cm, while the other two springs are relatively stretched by 2cm. This makes the four corners of the body raised by 6cm (right front), -2cm (left back), and 2cm (left front and right back).
 * For the both-right perturbation case, the compressions of four springs do not change.

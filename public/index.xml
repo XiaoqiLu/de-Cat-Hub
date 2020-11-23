@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>A Hugo website</title>
+    <title>de Cat Hub</title>
     <link>/</link>
-    <description>Recent content on A Hugo website</description>
+    <description>Recent content on de Cat Hub</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 22 Nov 2020 00:00:00 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
@@ -13,7 +13,7 @@
       <pubDate>Sun, 22 Nov 2020 00:00:00 +0000</pubDate>
       
       <guid>/2020/11/22/car-suspension-problem/</guid>
-      <description>The following problem is from a high-school-level physics puzzle book Gnädig, Honyek, and Riley (2001) (Problem #9):
+      <description>prematurely published draftThe following problem is from a high-school-level physics puzzle book Gnädig, Honyek, and Riley (2001) (Problem #9):
 The suspension springs of all four wheels of a car are identical. By how much does the body of the car (considered rigid) rise above each of the wheels when its right front wheel is parked on an 8-cm-high pavement? Does the result change when the car is parked with both right wheels on the pavement?</description>
     </item>
     
@@ -23,7 +23,8 @@
       <pubDate>Thu, 05 May 2016 21:48:51 -0700</pubDate>
       
       <guid>/about/</guid>
-      <description>This is a &amp;ldquo;hello world&amp;rdquo; example website for the blogdown package. The theme was forked from @jrutheiser/hugo-lithium-theme and modified by Yihui Xie.</description>
+      <description>Physics, statistics, and others.
+I am trying out this new blog site with the fantastic tool blogdown, for its LaTex support and R-friendly &amp;ndash; it is built on R Markdown. Contents from my old blog will be remastered (someday).</description>
     </item>
     
   </channel>

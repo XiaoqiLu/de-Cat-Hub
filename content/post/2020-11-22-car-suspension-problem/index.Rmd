@@ -31,7 +31,7 @@ For details of the approach, see @physics-puzzle-200.
 
 # Modeling
 
-The original problem is not very rigorously stated. To clear some ambiguity of the physical process, we set up an idealized model as follows:
+The original problem is not very rigorously stated. To clear up some ambiguity of the physical process, we set up an idealized model as follows:
 
 * The body of the car is modeled by a thin rectangular plate with certain mass distribution (mass center $\neq$ geometric center).
 * The body of the car is level (the plate's normal direction faces upwards) before perturbation.
@@ -52,6 +52,6 @@ Under this setting, the car is equivalent to a rectangle table with spring legs.
 
 # Conclusion
 
-[^1]: This is an idealization of fully independent suspension.
+[^1]: This is an idealization of fully independent suspension. For a comprehensive overview of how car suspensions work, see @how-car-suspensions-work.
 [^2]: However, their compressions may not be identical when mass center is not at geometric center. When this happens, calibration is needed to level the body of the car before perturbation.
 [^3]: This, together with the thin plate model, is to ensure that the effect of car rotation can be ignored.

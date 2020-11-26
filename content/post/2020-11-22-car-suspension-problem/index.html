@@ -14,37 +14,44 @@ bibliography: refs.bib
 
 
 <p style="color:red;">
-prematurely published draft
+PREMATURELY PUBLISHED FOR TESTING PURPOSES
 </p>
-<p>The following problem is from a high-school-level physics puzzle book <span class="citation">Gnädig, Honyek, and Riley (2001)</span> (Problem #9):</p>
+<p><em>In this blog post, I studied a generalized version of the car suspension problem, and discovered an elegant result.</em></p>
+<div id="original-problem" class="section level1">
+<h1>Original Problem</h1>
+<p>The original car suspension problem is from a high school physics puzzle book <span class="citation">Gnädig, Honyek, and Riley (2001)</span> (Problem #9):</p>
 <blockquote>
 <p>The suspension springs of all four wheels of a car are identical. By how much does the body of the car (considered rigid) rise above each of the wheels when its right front wheel is parked on an 8-cm-high pavement? Does the result change when the car is parked with both right wheels on the pavement? Does the result depend on the number and positions of the people sitting in the car?</p>
 </blockquote>
-<p>I decide to post my solution here for two reasons:</p>
-<ol style="list-style-type: decimal">
-<li>A generalized version of the original problem was studied.</li>
-<li>The result is too elegant to not writing it down.</li>
-</ol>
-<div id="break-down-the-original-problem" class="section level1">
-<h1>Break Down the Original Problem</h1>
-<p>As a high-school physics puzzle, the problem itself is not very rigorously stated. However, we can still interpret its intention and set up an idealized model for the physical process:</p>
-<ul>
-<li>The body of the car is modeled by a thin rectangular plate (center of mass not necessarily at geometry center).</li>
-<li>The body of the car is level before perturbation.</li>
-<li>Each wheel + suspension is modeled by a linear spring (with zero mass and following Hooke’s law), supporting one corner of the car.<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a></li>
-<li>All springs are identical, sharing same stiffness <span class="math inline">\(k\)</span>.<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a></li>
-<li>The 8-cm-high perturbation is small compared to the compressions of the springs (<span class="math inline">\(h \ll Mg / k\)</span>, or, the springs are flexible enough), such that the wheels always stay in contact with the ground.</li>
-<li>The 8-cm-high perturbation is small compared to the scale of the car (<span class="math inline">\(h \ll D\)</span>), such that the body of the car remains approximately level after perturbation.<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a></li>
-</ul>
-<p>This setting is equivalent to a rectangle table with springs as legs. The solution from the book is based on the “zero net torque” condition, giving the following answers:</p>
+<p style="color:red;">
+need a figure here (car, suspension)
+</p>
+<p>The solution from the book is based on the “zero net torque” condition, which leads to the following conclusions:</p>
 <ul>
 <li>For the right-front perturbation case, the right front and left back springs are each further compressed by 2cm, while the other two springs are relatively stretched by 2cm. This makes the four corners of the body raised by 6cm (right front), -2cm (left back), and 2cm (left front and right back).</li>
 <li>For the both-right perturbation case, the compressions of four springs do not change.</li>
 <li>The result does not depend on the mass distribution.</li>
 </ul>
+<p>For details of the approach, see <span class="citation">Gnädig, Honyek, and Riley (2001)</span>.</p>
 </div>
-<div id="generalized-version" class="section level1">
-<h1>Generalized Version</h1>
+<div id="modeling" class="section level1">
+<h1>Modeling</h1>
+<p>The original problem is not very rigorously stated. To clear some ambiguity of the physical process, we set up an idealized model as follows:</p>
+<ul>
+<li>The body of the car is modeled by a thin rectangular plate with certain mass distribution (mass center <span class="math inline">\(\neq\)</span> geometric center).</li>
+<li>The body of the car is level (the plate’s normal direction faces upwards) before perturbation.</li>
+<li>Each wheel-suspension is modeled by a linear spring (zero mass, obeying Hooke’s law) vertically attached to one corner of the car.<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a></li>
+<li>All springs are identical, sharing same stiffness <span class="math inline">\(k\)</span>.<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a></li>
+<li>The 8-cm-high perturbation is small compared to the compressions of the springs (<span class="math inline">\(h \ll Mg / k\)</span>, or, the springs are flexible enough), such that the wheels always stay in contact with the ground.</li>
+<li>The 8-cm-high perturbation is small compared to the scale of the car (<span class="math inline">\(h \ll D\)</span>), such that the body of the car remains approximately level after perturbation.<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a></li>
+</ul>
+<p>Under this setting, the car is equivalent to a rectangle table with spring legs.</p>
+<p style="color:red;">
+need a figure here (physical model abstraction, table)
+</p>
+</div>
+<div id="generalized-problem" class="section level1">
+<h1>Generalized Problem</h1>
 </div>
 <div id="derivation-and-solution" class="section level1">
 <h1>Derivation and Solution</h1>
@@ -61,7 +68,7 @@ prematurely published draft
 <hr />
 <ol>
 <li id="fn1"><p>This is an idealization of fully independent suspension.<a href="#fnref1" class="footnote-back">↩︎</a></p></li>
-<li id="fn2"><p>However, their compressions may not be identical when center of mass is not at geometry center. When this happens, calibration is needed to level the body of the car in the first place.<a href="#fnref2" class="footnote-back">↩︎</a></p></li>
-<li id="fn3"><p>This, together with the thin plate idealization, is to ensure that the effect from rotation of the car can be ignored.<a href="#fnref3" class="footnote-back">↩︎</a></p></li>
+<li id="fn2"><p>However, their compressions may not be identical when mass center is not at geometric center. When this happens, calibration is needed to level the body of the car before perturbation.<a href="#fnref2" class="footnote-back">↩︎</a></p></li>
+<li id="fn3"><p>This, together with the thin plate model, is to ensure that the effect of car rotation can be ignored.<a href="#fnref3" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>

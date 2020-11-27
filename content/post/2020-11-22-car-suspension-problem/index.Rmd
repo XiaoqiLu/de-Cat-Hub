@@ -19,7 +19,7 @@ The original car suspension problem is from a high school physics puzzle book @p
 
 > The suspension springs of all four wheels of a car are identical. By how much does the body of the car (considered rigid) rise above each of the wheels when its right front wheel is parked on an 8-cm-high pavement? Does the result change when the car is parked with both right wheels on the pavement? Does the result depend on the number and positions of the people sitting in the car?
 
-![*Figure 1. Car suspension system. (Source: Beaudaniels.com)*](/2020/11/22/car-suspension-problem/index_files/car-suspension-and-braking-system.jpg){height=100%, width=100%}
+![*Figure 1. Car suspension system. (Source: Beaudaniels.com)*](/2020/11/22/car-suspension-problem/index_files/car-suspension-and-braking-system.jpg){width=100% height=100%}
 
 
 The solution from the book is based on the "zero net torque" condition, which leads to the following conclusions:
@@ -43,7 +43,7 @@ The original problem is not very rigorously stated. To clear up some ambiguity o
 
 Under this setting, the car is equivalent to a rectangle table with spring legs.
 
-<p style="color:red;">need a figure here (physical model abstraction, table)</p>
+![*Figure 2. Idealized model "table with spring". (Powerd by ophysics.com)*](/2020/11/22/car-suspension-problem/index_files/table_with_spring.png){width=100% height=100%}
 
 # Generalized Problem
 

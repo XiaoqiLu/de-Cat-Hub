@@ -84,41 +84,34 @@ PREMATURELY PUBLISHED FOR TESTING PURPOSES
 <img src="/2020/11/22/car-suspension-problem/index_files/car-suspension-and-braking-system.jpg" style="width:100.0%;height:100.0%" alt="" />
 <p class="caption"><em>Figure 1. Car suspension system. (Source: <a href="https://beaudaniels.com/">Beau and Alan Daniels</a>.)</em></p>
 </div>
-<p>The solution from the book is based on the “zero net torque” condition, which leads to the following conclusions:</p>
+<p>The original problem statement is not very rigorous, which I believe is because the authors wanted to encourage students to refine and abstract real life problems instead of simply tackling exercises. Based on my understanding of the physical process, I set up an idealized model as “a rectangle table with spring legs” (<em>Figure 2</em>):</p>
+<ul>
+<li>The body of the car is modeled by a thin rectangular plate with certain mass distribution (mass center <span class="math inline">\(\neq\)</span> geometric center), and it is level (normal direction pointing upwards) before perturbation.</li>
+<li>Each wheel-suspension is modeled by a linear spring (zero mass, obeying Hooke’s law with stiffness <span class="math inline">\(k\)</span>) vertically attached to one corner of the car.<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a></li>
+<li>The 8-cm-high perturbation is small compared to the compressions of the springs (<span class="math inline">\(h \ll Mg / k\)</span>, or, the springs are flexible enough), such that the wheels always stay in contact with the ground.</li>
+<li>The 8-cm-high perturbation is small compared to the scale of the car (<span class="math inline">\(h \ll D\)</span>), such that the body of the car remains approximately level after perturbation.<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a></li>
+</ul>
+<div class="figure">
+<img src="/2020/11/22/car-suspension-problem/index_files/table_with_spring.png" style="width:100.0%;height:100.0%" alt="" />
+<p class="caption"><em>Figure 2. Idealized model “table with spring legs”. (Powerd by <a href="https://ophysics.com">oPhysics</a>.)</em></p>
+</div>
+<p>Note that this is only an idealization of fully independent suspension system. For a comprehensive explanation of realistic car suspensions, see <span class="citation">Harris (2005)</span>.</p>
+</div>
+<div id="generalized-problem-and-solution" class="section level1">
+<h1>Generalized Problem and Solution</h1>
+<p>A generalized version of the car suspension problem is to consider <span class="math inline">\(N\)</span> springs distributed in possibly asymmetric ways.<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a></p>
+<div class="figure">
+<img src="/2020/11/22/car-suspension-problem/index_files/generalized_problem.png" style="width:100.0%;height:100.0%" alt="" />
+<p class="caption"><em>Figure 3. Top view of the car (<span class="math inline">\(N=3\)</span>), where C is mass center, and the others are spring supporting points. (Powerd by <a href="https://www.geogebra.org/">GeoGebra</a>.)</em></p>
+</div>
+</div>
+<div id="conclusion" class="section level1">
+<h1>Conclusion</h1>
 <ul>
 <li>For the right-front perturbation case, the right front and left back springs are each further compressed by 2cm, while the other two springs are relatively stretched by 2cm. This causes the corners of the body raised by 6cm (right front), -2cm (left back), and 2cm (left front and right back).</li>
 <li>For the both-right perturbation case, the compressions of four springs do not change.</li>
 <li>The results do not depend on the car’s mass distribution.</li>
 </ul>
-<p>For details of the approach, see <span class="citation">Gnädig, Honyek, and Riley (2001)</span>.</p>
-</div>
-<div id="modeling" class="section level1">
-<h1>Modeling</h1>
-<p>The original problem is not very rigorously stated. To clear up some ambiguity of the physical process, we set up an idealized model as follows:</p>
-<ul>
-<li>The body of the car is modeled by a thin rectangular plate with certain mass distribution (mass center <span class="math inline">\(\neq\)</span> geometric center).</li>
-<li>The body of the car is level (the plate’s normal direction faces upwards) before perturbation.</li>
-<li>Each wheel-suspension is modeled by a linear spring (zero mass, obeying Hooke’s law) vertically attached to one corner of the car.<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a></li>
-<li>All springs are identical, sharing same stiffness <span class="math inline">\(k\)</span>.<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a></li>
-<li>The 8-cm-high perturbation is small compared to the compressions of the springs (<span class="math inline">\(h \ll Mg / k\)</span>, or, the springs are flexible enough), such that the wheels always stay in contact with the ground.</li>
-<li>The 8-cm-high perturbation is small compared to the scale of the car (<span class="math inline">\(h \ll D\)</span>), such that the body of the car remains approximately level after perturbation.<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a></li>
-</ul>
-<p>Under this setting, the car is equivalent to a rectangle table with spring legs.</p>
-<div class="figure">
-<img src="/2020/11/22/car-suspension-problem/index_files/table_with_spring.png" style="width:100.0%;height:100.0%" alt="" />
-<p class="caption"><em>Figure 2. Idealized model “table with spring”. (Powerd by <a href="https://ophysics.com">oPhysics</a>.)</em></p>
-</div>
-</div>
-<div id="generalized-problem" class="section level1">
-<h1>Generalized Problem</h1>
-<p>A generalized version of the car suspension problem is to consider <span class="math inline">\(N\)</span> springs distributed in possibly asymmetric ways.</p>
-<div class="figure">
-<img src="/2020/11/22/car-suspension-problem/index_files/generalized_problem.png" style="width:100.0%;height:100.0%" alt="" />
-<p class="caption"><em>Figure 3. Generalized problem (<span class="math inline">\(N=3\)</span>, top view). (Powerd by <a href="https://www.geogebra.org/">GeoGebra</a>.)</em></p>
-</div>
-</div>
-<div id="solution" class="section level1 unnumbered">
-<h1>Solution</h1>
 <div id="refs" class="references">
 <div id="ref-physics-puzzle-200">
 <p>Gnädig, P., G. Honyek, and K. F. Riley. 2001. <em>200 Puzzling Physics Problems: With Hints and Solutions</em>. Cambridge University Press. <a href="https://doi.org/10.1017/CBO9780511809804">https://doi.org/10.1017/CBO9780511809804</a>.</p>
@@ -131,9 +124,9 @@ PREMATURELY PUBLISHED FOR TESTING PURPOSES
 <div class="footnotes">
 <hr />
 <ol>
-<li id="fn1"><p>This is an idealization of fully independent suspension. For a comprehensive explanation of realistic car suspensions, see <span class="citation">Harris (2005)</span>.<a href="#fnref1" class="footnote-back">↩︎</a></p></li>
-<li id="fn2"><p>However, their compressions may not be identical when mass center is not at geometric center. When this happens, calibration is needed to level the body of the car before perturbation.<a href="#fnref2" class="footnote-back">↩︎</a></p></li>
-<li id="fn3"><p>This, together with the thin plate model, is to ensure that the effect of car rotation can be ignored.<a href="#fnref3" class="footnote-back">↩︎</a></p></li>
+<li id="fn1"><p>Even though the springs are identical, their compressions may not be identical when mass center is not at geometric center. When this happens, calibration is needed to level the body of the car before perturbation.<a href="#fnref1" class="footnote-back">↩︎</a></p></li>
+<li id="fn2"><p>This, together with the thin plate model, is to ensure that the effect of car rotation can be ignored.<a href="#fnref2" class="footnote-back">↩︎</a></p></li>
+<li id="fn3"><p>The mass center should be located in the convex hull of the <span class="math inline">\(N\)</span> supporting points (e.g. in <em>Figure 3</em>, C is inside the triangle formed by the 3 points).<a href="#fnref3" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
 

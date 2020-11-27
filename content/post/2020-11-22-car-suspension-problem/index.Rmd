@@ -19,14 +19,15 @@ The original car suspension problem is from a high school physics puzzle book @p
 
 > The suspension springs of all four wheels of a car are identical. By how much does the body of the car (considered rigid) rise above each of the wheels when its right front wheel is parked on an 8-cm-high pavement? Does the result change when the car is parked with both right wheels on the pavement? Does the result depend on the number and positions of the people sitting in the car?
 
-![*Figure 1. Car suspension system. (Source: Beaudaniels.com)*](/2020/11/22/car-suspension-problem/index_files/car-suspension-and-braking-system.jpg){width=100% height=100%}
+![*Figure 1. Car suspension system. (Source: [Beau and Alan Daniels
+](https://beaudaniels.com/).)*](/2020/11/22/car-suspension-problem/index_files/car-suspension-and-braking-system.jpg){width=100% height=100%}
 
 
 The solution from the book is based on the "zero net torque" condition, which leads to the following conclusions:
 
-* For the right-front perturbation case, the right front and left back springs are each further compressed by 2cm, while the other two springs are relatively stretched by 2cm. This makes the four corners of the body raised by 6cm (right front), -2cm (left back), and 2cm (left front and right back).
+* For the right-front perturbation case, the right front and left back springs are each further compressed by 2cm, while the other two springs are relatively stretched by 2cm. This causes the corners of the body raised by 6cm (right front), -2cm (left back), and 2cm (left front and right back).
 * For the both-right perturbation case, the compressions of four springs do not change.
-* The result does not depend on the mass distribution.
+* The results do not depend on the car's mass distribution.
 
 For details of the approach, see @physics-puzzle-200.
 
@@ -43,15 +44,15 @@ The original problem is not very rigorously stated. To clear up some ambiguity o
 
 Under this setting, the car is equivalent to a rectangle table with spring legs.
 
-![*Figure 2. Idealized model "table with spring". (Powerd by ophysics.com)*](/2020/11/22/car-suspension-problem/index_files/table_with_spring.png){width=100% height=100%}
+![*Figure 2. Idealized model "table with spring". (Powerd by [oPhysics](https://ophysics.com).)*](/2020/11/22/car-suspension-problem/index_files/table_with_spring.png){width=100% height=100%}
 
 # Generalized Problem
 
+A generalized version of the car suspension problem is to consider $N$ springs distributed in possibly asymmetric ways.
 
+![*Figure 3. Generalized problem ($N=3$, top view). (Powerd by [GeoGebra](https://www.geogebra.org/).)*](/2020/11/22/car-suspension-problem/index_files/generalized_problem.png){width=100% height=100%}
 
-# Derivation and Solution
-
-# Conclusion
+# Solution
 
 [^1]: This is an idealization of fully independent suspension. For a comprehensive explanation of realistic car suspensions, see @how-car-suspensions-work.
 [^2]: However, their compressions may not be identical when mass center is not at geometric center. When this happens, calibration is needed to level the body of the car before perturbation.

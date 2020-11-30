@@ -42,18 +42,90 @@ PREMATURELY PUBLISHED FOR TESTING PURPOSES
 </div>
 <div id="generalized-problem-and-solution" class="section level1">
 <h1>Generalized Problem and Solution</h1>
-<p>A generalized version of the car suspension problem is to consider <span class="math inline">\(N\)</span> springs distributed in possibly asymmetric ways.<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a></p>
+<p>A generalized version of the car suspension problem is to consider <span class="math inline">\(N\)</span> springs distributed in possibly asymmetric ways.<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a> Generally the body of the car can be of any shape, as shown in <em>Figure 3</em>.</p>
 <div class="figure">
 <img src="/2020/11/22/car-suspension-problem/index_files/generalized_problem.png" style="width:100.0%;height:100.0%" alt="" />
 <p class="caption"><em>Figure 3. Top view of the car (<span class="math inline">\(N=3\)</span>), where C is mass center, and the others are spring supporting points. (Powerd by <a href="https://www.geogebra.org/">GeoGebra</a>.)</em></p>
 </div>
+<p>Before approaching the problem, I still need to define certain variables to represent the state of the spring(s) under perturbation. Specifically, I decompose the altitude <span class="math inline">\(z\)</span> of the supporting points into ground elevation <span class="math inline">\(b\)</span> and spring length <span class="math inline">\(h-s\)</span>, see <em>Figure 4</em> for details.</p>
+<div class="figure">
+<img src="/2020/11/22/car-suspension-problem/index_files/spring.png" style="width:100.0%;height:100.0%" alt="" />
+<p class="caption"><em>Figure 4. Spring under perturbation. In this example, the ground is elevated by <span class="math inline">\(b\)</span> (which is 8cm for the pavement in the original problem), and the perturbation of the ground causes the spring further compressed by <span class="math inline">\(s\)</span>. We further denote <span class="math inline">\(h\)</span> as the initial spring length (calibrated, such that the car body is level), thus the altitude of the supporting point is <span class="math inline">\(z=h+b-s\)</span>. Here <span class="math inline">\(h\)</span> is the same among all springs, but <span class="math inline">\(b\)</span> and <span class="math inline">\(s\)</span> are spring-specific. (Powerd by <a href="https://ophysics.com">oPhysics</a>.)</em></p>
+</div>
+<p>Now I am ready to approach the problem. Here are several equations the system should satisfy:</p>
+<ul>
+<li>Zero net torque + Hooke’s law
+<span class="math display">\[\sum_{i=1}^N x_i s_i = \sum_{i=1}^N y_i s_i = 0\]</span></li>
+<li>Zero net force + Hooke’s law
+<span class="math display">\[\sum_{i=1}^N s_i = 0\]</span></li>
+<li>Geometry constraint (all supporting points lie in the same plane)
+<span class="math display">\[\xi x_i + \eta y_i + \zeta (h + b_i - s_i) = 1, \quad \forall i\]</span>
+where <span class="math inline">\((\xi, \eta, \zeta)\)</span> controls the position of the plane.</li>
+</ul>
+<p>Note that in the absence of perturbation (<span class="math inline">\(b_i = 0,\, \forall i\)</span>), we have <span class="math inline">\(s_i = 0,\, \forall i\)</span>, and <span class="math inline">\((\xi, \eta, \zeta) = (0, 0, \frac{1}{h})\)</span>.</p>
+<p>To further decompose the perturbation effect, I use Taylor expansion:
+<span class="math display">\[s_i = \sum_{j=1}^N(\partial_j s_i) b_j + o(b_1, \ldots, b_N)\]</span>
+where <span class="math inline">\(\partial_j\)</span> is short notation for partial derivative <span class="math inline">\(\frac{\partial}{\partial b_j}\)</span>, and <span class="math inline">\(o(\cdot)\)</span> is little-o notation. Here <span class="math inline">\(\partial_j s_i\)</span> is interpreted as the compression effect on the <span class="math inline">\(i\)</span>-th spring from unit elevation of ground at <span class="math inline">\(j\)</span>-th support. With this mindset, we can take partial derivative on the geometry constraint (as well as other equations above), evaluated at zero perturbation:
+<span class="math display">\[(\partial_j \xi) x_i + (\partial_j \eta) y_i + (\partial_j \zeta) h + \frac{1}{h} (\delta_{ij} - \partial_j s_i) = 0, \quad \forall i, j\]</span>
+where <span class="math inline">\(\delta_{ij}\)</span> is <a href="https://en.wikipedia.org/wiki/Kronecker_delta">Kronecker delta</a>.</p>
+<p>To utilize the equations of zero net force/torque, (weighted) summations (over index <span class="math inline">\(i\)</span>) are performed:
+<span class="math display">\[(\partial_j \xi) \sum_{i=1}^N x_i + (\partial_j \eta) \sum_{i=1}^N y_i + (\partial_j \tilde{\zeta}) N + \frac{1}{h} = 0\]</span>
+<span class="math display">\[(\partial_j \xi) \sum_{i=1}^N x_i^2 + (\partial_j \eta) \sum_{i=1}^N x_i y_i + (\partial_j \tilde{\zeta}) \sum_{i=1}^N x_i + \frac{x_j}{h} = 0\]</span>
+<span class="math display">\[(\partial_j \xi) \sum_{i=1}^N x_i y_i + (\partial_j \eta) \sum_{i=1}^N y_i^2 + (\partial_j \tilde{\zeta}) \sum_{i=1}^N y_i + \frac{y_j}{h} = 0\]</span>
+where <span class="math inline">\(\tilde{\zeta} = h \zeta\)</span> is a dimensionless quantity.</p>
+<p>Now, denote “<a href="https://en.wikipedia.org/wiki/Design_matrix">design matrix</a>”
+<span class="math display">\[X = \begin{pmatrix}
+x_1 &amp; y_1 &amp; 1\\
+x_2 &amp; y_2 &amp; 1\\
+\vdots &amp; \vdots &amp; \vdots\\
+x_N &amp; y_N &amp; 1
+\end{pmatrix}\]</span>
+then the three equations above can be summarized as
+<span class="math display">\[(X^T X) \partial_j\begin{pmatrix}\xi \\ \eta \\ \tilde{\zeta}\end{pmatrix} = - \frac{1}{h} \begin{pmatrix}x_j \\ y_j \\ 1\end{pmatrix}\]</span></p>
+<p>Therefore, the partial derivative of geometry constraint can be written as
+<span class="math display">\[\begin{align}\partial_j s_i
+&amp;= \delta_{ij} + h \begin{pmatrix}x_i &amp; y_i &amp; 1\end{pmatrix} \partial_j\begin{pmatrix}\xi \\ \eta \\ \tilde{\zeta}\end{pmatrix}\\
+&amp;= \delta_{ij} - \begin{pmatrix}x_i &amp; y_i &amp; 1\end{pmatrix} (X^T X)^{-1} \begin{pmatrix}x_j \\ y_j \\ 1\end{pmatrix}\\
+&amp;= \delta_{ij} - e_i^T (I - H) e_j\\
+&amp;= (I - H)_{ij}
+\end{align}\]</span>
+where <span class="math inline">\(H = X (X^T X)^{-1} X^T\)</span> is the “<a href="https://en.wikipedia.org/wiki/Projection_matrix">hat matrix</a>”, and <span class="math inline">\(e_i, e_j\)</span> are <a href="https://en.wikipedia.org/wiki/Standard_basis">standard bases</a>. Now we have a super elegant result:
+<span class="math display">\[\frac{\partial s}{\partial b} = I - H\]</span>
+which enjoys the following properties:</p>
+<ol style="list-style-type: decimal">
+<li>It only depends on the relative positions of the supporting springs. To see this, note that a translation transformation on the coordinates can be seen as design matrix <span class="math inline">\(X\)</span> right multiplied by some full-rank matrix <span class="math inline">\(R\)</span>, and that hat matrix <span class="math inline">\(H\)</span> is invariant under such transformation. This also implies that we can choose an arbitrary point (other than the mass center) as the <span class="math inline">\(x\)</span>-<span class="math inline">\(y\)</span> coordinate origin.</li>
+<li>The first property extends to any full-rank affine transformation (translation, rotation and scaling).</li>
+<li>Since <span class="math inline">\(I - H\)</span> is symmetric, we have <span class="math inline">\(\partial_j s_i = \partial_i s_j\)</span>: the effect from ground <span class="math inline">\(j\)</span> to spring <span class="math inline">\(i\)</span> equals to the effect from ground <span class="math inline">\(i\)</span> to spring <span class="math inline">\(j\)</span>.</li>
+<li>The result does not depend on mass distribution of the car, stiffness of the springs, or gravity.</li>
+</ol>
 </div>
 <div id="conclusion" class="section level1">
 <h1>Conclusion</h1>
+<p>To apply the derived solution to perturbation <span class="math inline">\((b_1, \ldots, b_N)\)</span>:</p>
+<ol style="list-style-type: decimal">
+<li>Write down coordinates for all supporting points <span class="math inline">\(\{(x_i, y_i)\}_{i=1}^N\)</span>.</li>
+<li>Calculate the hat matrix <span class="math inline">\(H = X (X^T X)^{-1} X\)</span>, and <span class="math inline">\(\partial s / \partial b = I - H\)</span>.</li>
+<li>From Taylor expansion we have <span class="math inline">\(s_i \approx \sum_{j = 1}^N (\partial_j s_i) b_j,\, \forall i\)</span>.</li>
+</ol>
+<p>In the original problem scenario, we first write down the coordinates of four supporting points as
+<span class="math display">\[\{(-1, -1),\, (-1, +1),\, (+1, -1),\, (+1, +1)\}\]</span>
+then
+<span class="math display">\[H = \frac{1}{4}\begin{pmatrix}
+3 &amp; 1 &amp; 1 &amp; -1\\
+1 &amp; 3 &amp; -1 &amp; 1\\
+1 &amp; -1 &amp; 3 &amp; 1\\
+-1 &amp; 1 &amp; 1 &amp; 3
+\end{pmatrix} \Rightarrow
+\frac{\partial s}{\partial b} = \frac{1}{4}\begin{pmatrix}
+1 &amp; -1 &amp; -1 &amp; 1\\
+-1 &amp; 1 &amp; 1 &amp; -1\\
+-1 &amp; 1 &amp; 1 &amp; -1\\
+1 &amp; -1 &amp; -1 &amp; 1
+\end{pmatrix}\]</span></p>
+<p>This leads to the following results:</p>
 <ul>
-<li>For the right-front perturbation case, the right front and left back springs are each further compressed by 2cm, while the other two springs are relatively stretched by 2cm. This causes the corners of the body raised by 6cm (right front), -2cm (left back), and 2cm (left front and right back).</li>
-<li>For the both-right perturbation case, the compressions of four springs do not change.</li>
-<li>The results do not depend on the car’s mass distribution.</li>
+<li>For the right-front (<span class="math inline">\(j=4\)</span>) perturbation case, the right front (<span class="math inline">\(i=4\)</span>) and left back (<span class="math inline">\(i=1\)</span>) springs are each further compressed by 2cm (because <span class="math inline">\(\partial_j s_i = 1/4\)</span>), while the other two springs (<span class="math inline">\(i=2, 3\)</span>) are relatively stretched by 2cm (because <span class="math inline">\(\partial_j s_i = - 1/4\)</span>). This causes the corners of the body raised by 6cm (right front), -2cm (left back), and 2cm (left front and right back).</li>
+<li>For the both-right (<span class="math inline">\(j=3, 4\)</span>) perturbation case, the compressions of four springs do not change (because the two rows of <span class="math inline">\(\partial s / \partial b\)</span> cancel out each other).<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a></li>
 </ul>
 <div id="refs" class="references">
 <div id="ref-physics-puzzle-200">
@@ -70,5 +142,6 @@ PREMATURELY PUBLISHED FOR TESTING PURPOSES
 <li id="fn1"><p>Even though the springs are identical, their compressions may not be identical when mass center is not at geometric center. When this happens, calibration is needed to level the body of the car before perturbation.<a href="#fnref1" class="footnote-back">↩︎</a></p></li>
 <li id="fn2"><p>This, together with the thin plate model, is to ensure that the effect of car rotation can be ignored.<a href="#fnref2" class="footnote-back">↩︎</a></p></li>
 <li id="fn3"><p>The mass center should be located in the convex hull of the <span class="math inline">\(N\)</span> supporting points (e.g. in <em>Figure 3</em>, C is inside the triangle formed by the 3 points).<a href="#fnref3" class="footnote-back">↩︎</a></p></li>
+<li id="fn4"><p>Strictly speaking, when this happens, higher order perturbation comes into play (e.g. effects from second derivatives in Taylor expansion), which is beyond the scope of this post.<a href="#fnref4" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>

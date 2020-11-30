@@ -24,8 +24,8 @@ The original problem statement is not very rigorous, which I believe is because 
 
 * The body of the car is modeled by a thin rectangular plate with certain mass distribution (mass center $\neq$ geometric center), and it is level (normal direction pointing upwards) before perturbation.
 * Each wheel-suspension is modeled by a linear spring (zero mass, obeying Hooke's law with stiffness $k$) vertically attached to one corner of the car.[^1]
-* The 8-cm-high perturbation is small compared to the compressions of the springs ($h \ll Mg / k$, or, the springs are flexible enough), such that the wheels always stay in contact with the ground.
-* The 8-cm-high perturbation is small compared to the scale of the car ($h \ll D$), such that the body of the car remains approximately level after perturbation.[^2]
+* The 8-cm-high perturbation is small compared to the compressions of the springs ($b \ll Mg / k$, or, the springs are flexible enough), such that the wheels always stay in contact with the ground.
+* The 8-cm-high perturbation is small compared to the scale of the car ($b \ll L$), such that the body of the car remains approximately level after perturbation.[^2]
 
 ![*Figure 2. Idealized model "table with spring legs". (Powerd by [oPhysics](https://ophysics.com).)*](/2020/11/22/car-suspension-problem/index_files/table_with_spring.png){width=100% height=100%}
 

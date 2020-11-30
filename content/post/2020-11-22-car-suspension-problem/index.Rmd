@@ -9,8 +9,6 @@ tags: []
 bibliography: refs.bib
 ---
 
-<p style="color:red;">PREMATURELY PUBLISHED FOR TESTING PURPOSES</p>
-
 *In this blog post, I studied a generalized version of the car suspension problem, and discovered an elegant result.*
 
 # Original Problem

@@ -83,21 +83,23 @@ $$\begin{align}\partial_j s_i
 &= (I - H)_{ij}
 \end{align}$$
 where $H = X (X^T X)^{-1} X^T$ is the "[hat matrix](https://en.wikipedia.org/wiki/Projection_matrix)", and $e_i, e_j$ are [standard bases](https://en.wikipedia.org/wiki/Standard_basis). Now we have a super elegant result:
-$$\frac{\partial s}{\partial b} = I - H$$
+$$\nabla_b\, s = \frac{\partial s}{\partial b} = I - H$$
 which enjoys the following properties:
 
 1. It only depends on the relative positions of the supporting springs. To see this, note that a translation transformation on the coordinates can be seen as design matrix $X$ right multiplied by some full-rank matrix $R$, and that hat matrix $H$ is invariant under such transformation. This also implies that we can choose an arbitrary point (other than the mass center) as the $x$-$y$ coordinate origin.
 2. The first property extends to any full-rank affine transformation (translation, rotation and scaling).
-3. Since $I - H$ is symmetric, we have $\partial_j s_i = \partial_i s_j$: the effect from ground $j$ to spring $i$ equals to the effect from ground $i$ to spring $j$.
-4. The result does not depend on mass distribution of the car, stiffness of the springs, or gravity.
+3. The result does not depend on mass distribution of the car, stiffness of the springs, or gravity.
+4. Since $I - H$ is symmetric, we have $\partial_j s_i = \partial_i s_j$: the effect from ground $j$ to spring $i$ equals to the effect from ground $i$ to spring $j$.
+5. From Taylor expansion, we have $s \approx \left(\nabla_b\, s\right) b = (I - H) b$, which is the residuals of [regressing](https://en.wikipedia.org/wiki/Linear_regression) $b$ on $x$ and $y$ (with intercept).
 
 # Conclusion
 
 To apply the derived solution to perturbation $(b_1, \ldots, b_N)$:
 
 1. Write down coordinates for all supporting points $\{(x_i, y_i)\}_{i=1}^N$.
-2. Calculate the hat matrix $H = X (X^T X)^{-1} X$, and $\partial s / \partial b = I - H$.
-3. From Taylor expansion we have $s_i \approx \sum_{j = 1}^N (\partial_j s_i) b_j,\, \forall i$.
+2. The hat matrix is given by $H = X (X^T X)^{-1} X$, thus $\nabla_b\, s = I - H$.
+3. From Taylor expansion $s_i \approx \sum_{j = 1}^N (\partial_j s_i) b_j,\, \forall i$, or $s \approx \left(\nabla_b\, s\right) b$.
+4. (Alternatively) for large $N$, use regression for fast computation.
 
 In the original problem scenario, we first write down the coordinates of four supporting points as
 $$\{(-1, -1),\, (-1, +1),\, (+1, -1),\, (+1, +1)\}$$
@@ -108,7 +110,7 @@ $$H = \frac{1}{4}\begin{pmatrix}
 1 & -1 & 3 & 1\\
 -1 & 1 & 1 & 3
 \end{pmatrix} \Rightarrow
-\frac{\partial s}{\partial b} = \frac{1}{4}\begin{pmatrix}
+\nabla_b\, s = \frac{1}{4}\begin{pmatrix}
 1 & -1 & -1 & 1\\
 -1 & 1 & 1 & -1\\
 -1 & 1 & 1 & -1\\
@@ -117,8 +119,8 @@ $$H = \frac{1}{4}\begin{pmatrix}
 
 This leads to the following results:
 
-* For the right-front ($j=4$) perturbation case, the right front ($i=4$) and left back ($i=1$) springs are each further compressed by 2cm (because $\partial_j s_i = 1/4$), while the other two springs ($i=2, 3$) are relatively stretched by 2cm (because $\partial_j s_i = - 1/4$). This causes the corners of the body raised by 6cm (right front), -2cm (left back), and 2cm (left front and right back).
-* For the both-right ($j=3, 4$) perturbation case, the compressions of four springs do not change (because the two rows of $\partial s / \partial b$ cancel out each other).[^4]
+* For the right-front ($j=4$) perturbation case, $b = \begin{pmatrix}0 & 0 & 0 & 8\end{pmatrix}^T$, giving $s \approx \begin{pmatrix}2 & -2 & -2 & 2\end{pmatrix}^T$. Therefore, the right front ($i=4$) and left back ($i=1$) springs are each further compressed by 2cm, while the other two springs ($i=2, 3$) are relatively stretched by 2cm. This causes the corners of the body raised by 6cm (right front), -2cm (left back), and 2cm (left front and right back).
+* For the both right ($j=3, 4$) perturbation case, $b = \begin{pmatrix}0 & 0 & 8 & 8\end{pmatrix}^T$, giving $s \approx \begin{pmatrix}0 & 0 & 0 & 0\end{pmatrix}^T$[^4]. This is not surprising: the ground elevation $b$ is within a plane, thus can be linearly expressed by $x$ and $y$. From the regression perspective, this results in perfect fitting (zero residual). Therefore, the spring compressions do not change, causing the right side of the body simply raised by 8cm.
 
 [^1]: Even though the springs are identical, their compressions may not be identical when mass center is not at geometric center. When this happens, calibration is needed to level the body of the car before perturbation.
 [^2]: This, together with the thin plate model, is to ensure that the effect of car rotation can be ignored.

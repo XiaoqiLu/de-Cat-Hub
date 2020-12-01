@@ -87,13 +87,14 @@ then the three equations above can be summarized as
 &amp;= (I - H)_{ij}
 \end{align}\]</span>
 where <span class="math inline">\(H = X (X^T X)^{-1} X^T\)</span> is the “<a href="https://en.wikipedia.org/wiki/Projection_matrix">hat matrix</a>”, and <span class="math inline">\(e_i, e_j\)</span> are <a href="https://en.wikipedia.org/wiki/Standard_basis">standard bases</a>. Now we have a super elegant result:
-<span class="math display">\[\frac{\partial s}{\partial b} = I - H\]</span>
+<span class="math display">\[\nabla_b\, s = \frac{\partial s}{\partial b} = I - H\]</span>
 which enjoys the following properties:</p>
 <ol style="list-style-type: decimal">
 <li>It only depends on the relative positions of the supporting springs. To see this, note that a translation transformation on the coordinates can be seen as design matrix <span class="math inline">\(X\)</span> right multiplied by some full-rank matrix <span class="math inline">\(R\)</span>, and that hat matrix <span class="math inline">\(H\)</span> is invariant under such transformation. This also implies that we can choose an arbitrary point (other than the mass center) as the <span class="math inline">\(x\)</span>-<span class="math inline">\(y\)</span> coordinate origin.</li>
 <li>The first property extends to any full-rank affine transformation (translation, rotation and scaling).</li>
-<li>Since <span class="math inline">\(I - H\)</span> is symmetric, we have <span class="math inline">\(\partial_j s_i = \partial_i s_j\)</span>: the effect from ground <span class="math inline">\(j\)</span> to spring <span class="math inline">\(i\)</span> equals to the effect from ground <span class="math inline">\(i\)</span> to spring <span class="math inline">\(j\)</span>.</li>
 <li>The result does not depend on mass distribution of the car, stiffness of the springs, or gravity.</li>
+<li>Since <span class="math inline">\(I - H\)</span> is symmetric, we have <span class="math inline">\(\partial_j s_i = \partial_i s_j\)</span>: the effect from ground <span class="math inline">\(j\)</span> to spring <span class="math inline">\(i\)</span> equals to the effect from ground <span class="math inline">\(i\)</span> to spring <span class="math inline">\(j\)</span>.</li>
+<li>From Taylor expansion, we have <span class="math inline">\(s \approx \left(\nabla_b\, s\right) b = (I - H) b\)</span>, which is the residuals of <a href="https://en.wikipedia.org/wiki/Linear_regression">regressing</a> <span class="math inline">\(b\)</span> on <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> (with intercept).</li>
 </ol>
 </div>
 <div id="conclusion" class="section level1">
@@ -101,8 +102,9 @@ which enjoys the following properties:</p>
 <p>To apply the derived solution to perturbation <span class="math inline">\((b_1, \ldots, b_N)\)</span>:</p>
 <ol style="list-style-type: decimal">
 <li>Write down coordinates for all supporting points <span class="math inline">\(\{(x_i, y_i)\}_{i=1}^N\)</span>.</li>
-<li>Calculate the hat matrix <span class="math inline">\(H = X (X^T X)^{-1} X\)</span>, and <span class="math inline">\(\partial s / \partial b = I - H\)</span>.</li>
-<li>From Taylor expansion we have <span class="math inline">\(s_i \approx \sum_{j = 1}^N (\partial_j s_i) b_j,\, \forall i\)</span>.</li>
+<li>The hat matrix is given by <span class="math inline">\(H = X (X^T X)^{-1} X\)</span>, thus <span class="math inline">\(\nabla_b\, s = I - H\)</span>.</li>
+<li>From Taylor expansion <span class="math inline">\(s_i \approx \sum_{j = 1}^N (\partial_j s_i) b_j,\, \forall i\)</span>, or <span class="math inline">\(s \approx \left(\nabla_b\, s\right) b\)</span>.</li>
+<li>(Alternatively) for large <span class="math inline">\(N\)</span>, use regression for fast computation.</li>
 </ol>
 <p>In the original problem scenario, we first write down the coordinates of four supporting points as
 <span class="math display">\[\{(-1, -1),\, (-1, +1),\, (+1, -1),\, (+1, +1)\}\]</span>
@@ -113,7 +115,7 @@ then
 1 &amp; -1 &amp; 3 &amp; 1\\
 -1 &amp; 1 &amp; 1 &amp; 3
 \end{pmatrix} \Rightarrow
-\frac{\partial s}{\partial b} = \frac{1}{4}\begin{pmatrix}
+\nabla_b\, s = \frac{1}{4}\begin{pmatrix}
 1 &amp; -1 &amp; -1 &amp; 1\\
 -1 &amp; 1 &amp; 1 &amp; -1\\
 -1 &amp; 1 &amp; 1 &amp; -1\\
@@ -121,8 +123,8 @@ then
 \end{pmatrix}\]</span></p>
 <p>This leads to the following results:</p>
 <ul>
-<li>For the right-front (<span class="math inline">\(j=4\)</span>) perturbation case, the right front (<span class="math inline">\(i=4\)</span>) and left back (<span class="math inline">\(i=1\)</span>) springs are each further compressed by 2cm (because <span class="math inline">\(\partial_j s_i = 1/4\)</span>), while the other two springs (<span class="math inline">\(i=2, 3\)</span>) are relatively stretched by 2cm (because <span class="math inline">\(\partial_j s_i = - 1/4\)</span>). This causes the corners of the body raised by 6cm (right front), -2cm (left back), and 2cm (left front and right back).</li>
-<li>For the both-right (<span class="math inline">\(j=3, 4\)</span>) perturbation case, the compressions of four springs do not change (because the two rows of <span class="math inline">\(\partial s / \partial b\)</span> cancel out each other).<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a></li>
+<li>For the right-front (<span class="math inline">\(j=4\)</span>) perturbation case, <span class="math inline">\(b = \begin{pmatrix}0 &amp; 0 &amp; 0 &amp; 8\end{pmatrix}^T\)</span>, giving <span class="math inline">\(s \approx \begin{pmatrix}2 &amp; -2 &amp; -2 &amp; 2\end{pmatrix}^T\)</span>. Therefore, the right front (<span class="math inline">\(i=4\)</span>) and left back (<span class="math inline">\(i=1\)</span>) springs are each further compressed by 2cm, while the other two springs (<span class="math inline">\(i=2, 3\)</span>) are relatively stretched by 2cm. This causes the corners of the body raised by 6cm (right front), -2cm (left back), and 2cm (left front and right back).</li>
+<li>For the both right (<span class="math inline">\(j=3, 4\)</span>) perturbation case, <span class="math inline">\(b = \begin{pmatrix}0 &amp; 0 &amp; 8 &amp; 8\end{pmatrix}^T\)</span>, giving <span class="math inline">\(s \approx \begin{pmatrix}0 &amp; 0 &amp; 0 &amp; 0\end{pmatrix}^T\)</span><a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a>. This is not surprising: the ground elevation <span class="math inline">\(b\)</span> is within a plane, thus can be linearly expressed by <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>. From the regression perspective, this results in perfect fitting (zero residual). Therefore, the spring compressions do not change, causing the right side of the body simply raised by 8cm.</li>
 </ul>
 <div id="refs" class="references">
 <div id="ref-physics-puzzle-200">
